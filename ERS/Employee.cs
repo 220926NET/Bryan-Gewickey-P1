@@ -3,43 +3,36 @@
  // if (login == Manager.Username.get && pWord == Manager.Password.get)
         
 
-public class Employee
-{
-    public Employee(string username, string password)
-    {
-        username = this.username;
-        password = this.password;
-    }
 
-    Employee tim = new Employee("timtime", "66699969");
-    Employee david = new Employee("David", "12344455");
-    
-    public bool IsManager = false;
+//namespace Models
 
-    public string username = "David";
-    public string password = "12344455";
+//public class Manager
 
-
-
-}
-
-public class Manager
-{
     // Manager usernames start with M
-    private string? username;
+    //private string? _username;
+
+    //private string? _password;
+
+
+    //bool IsManager = true;
+
+    //public class Ticket
+
+
+
+    // User Role Validation
+
+
+
+    // Ticket Submission
+    //private decimal? ticketAmt;
+    //private string? ticketDesc;
+
+    //public string? TicketDesc { 
     
+    //get {  ticketDesc;} 
+    //set { ticketDesc = value; }
 
-    public string Username { get => username; set => username = value; }
-    public string Password { get => password; set => password = value; }
+    //public decimal? TicketAmt { get => ticketAmt; set => ticketAmt = value; }
 
-    private string? password;
 
-    public Manager(string username, string password)
-    {
-        Username = this.username;
-        Password = this.password;
-    }
-
-    // public Dictionary id = new Dictionary<string, string>;
-
-}
