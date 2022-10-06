@@ -1,0 +1,13 @@
+C:\Users\bryan\Documents\DevProjects\Revature\Bryan-Gewickey-P1\ERS\UI\bin\Debug\net6.0\ERS.exe
+C:\Users\bryan\Documents\DevProjects\Revature\Bryan-Gewickey-P1\ERS\UI\bin\Debug\net6.0\ERS.deps.json
+C:\Users\bryan\Documents\DevProjects\Revature\Bryan-Gewickey-P1\ERS\UI\bin\Debug\net6.0\ERS.runtimeconfig.json
+C:\Users\bryan\Documents\DevProjects\Revature\Bryan-Gewickey-P1\ERS\UI\bin\Debug\net6.0\ERS.dll
+C:\Users\bryan\Documents\DevProjects\Revature\Bryan-Gewickey-P1\ERS\UI\bin\Debug\net6.0\ERS.pdb
+C:\Users\bryan\Documents\DevProjects\Revature\Bryan-Gewickey-P1\ERS\UI\obj\Debug\net6.0\ERS.csproj.AssemblyReference.cache
+C:\Users\bryan\Documents\DevProjects\Revature\Bryan-Gewickey-P1\ERS\UI\obj\Debug\net6.0\ERS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bryan\Documents\DevProjects\Revature\Bryan-Gewickey-P1\ERS\UI\obj\Debug\net6.0\ERS.csproj.CoreCompileInputs.cache
+C:\Users\bryan\Documents\DevProjects\Revature\Bryan-Gewickey-P1\ERS\UI\obj\Debug\net6.0\ERS.dll
+C:\Users\bryan\Documents\DevProjects\Revature\Bryan-Gewickey-P1\ERS\UI\obj\Debug\net6.0\refint\ERS.dll
+C:\Users\bryan\Documents\DevProjects\Revature\Bryan-Gewickey-P1\ERS\UI\obj\Debug\net6.0\ERS.pdb
+C:\Users\bryan\Documents\DevProjects\Revature\Bryan-Gewickey-P1\ERS\UI\obj\Debug\net6.0\ERS.genruntimeconfig.cache
+C:\Users\bryan\Documents\DevProjects\Revature\Bryan-Gewickey-P1\ERS\UI\obj\Debug\net6.0\ref\ERS.dll

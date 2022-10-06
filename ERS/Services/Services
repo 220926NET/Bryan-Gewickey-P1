@@ -1,0 +1,17 @@
+namespace Services;
+
+public class Tickets
+{
+    
+    
+
+    // Method to submit a ticket, which returns a unique ID
+    static string SubmitTicket(decimal amount, string description, out int ticketID)
+    {
+        Random Random = new Random();
+        ticketID = Random.Next(0, int.MaxValue);
+        
+        
+
+    }
+}
