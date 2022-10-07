@@ -18,3 +18,4 @@ C:\Users\bryan\Documents\DevProjects\Revature\Bryan-Gewickey-P1\ERS\UI\obj\Debug
 C:\Users\bryan\Documents\DevProjects\Revature\Bryan-Gewickey-P1\ERS\UI\obj\Debug\net6.0\ERS.pdb
 C:\Users\bryan\Documents\DevProjects\Revature\Bryan-Gewickey-P1\ERS\UI\obj\Debug\net6.0\ERS.genruntimeconfig.cache
 C:\Users\bryan\Documents\DevProjects\Revature\Bryan-Gewickey-P1\ERS\UI\obj\Debug\net6.0\ref\ERS.dll
+C:\Users\bryan\Documents\DevProjects\Revature\Bryan-Gewickey-P1\ERS\UI\bin\Debug\net6.0\Serilog.dll

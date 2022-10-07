@@ -1,3 +1,5 @@
+
+
 namespace Services
 {
 
@@ -32,18 +34,35 @@ public class TicketService
     }
 
 
+public class AuthService : IUserAuthentification
+{
+
+}
+
 }
 
 public class Login
 {
-    // throw new NotImplementedException();
+    public static void UserLogin()
+    {
+        // if (Manager.password == true)
+        
+        throw new NotImplementedException();
+    }
 }
 
 public class Register
 {
-    // throw new NotImplementedException();
+    public static void RegisterUser()
+    {
+        throw new NotImplementedException();
+    }
 }
 
+public interface IUserAuthentification
+{
 
+
+}
 
 }
