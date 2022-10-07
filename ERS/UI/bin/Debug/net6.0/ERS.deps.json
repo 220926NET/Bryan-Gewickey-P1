@@ -7,14 +7,40 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "ERS/1.0.0": {
+        "dependencies": {
+          "Services": "1.0.0"
+        },
         "runtime": {
           "ERS.dll": {}
+        }
+      },
+      "DataAccess/1.0.0": {
+        "runtime": {
+          "DataAccess.dll": {}
+        }
+      },
+      "Services/1.0.0": {
+        "dependencies": {
+          "DataAccess": "1.0.0"
+        },
+        "runtime": {
+          "Services.dll": {}
         }
       }
     }
   },
   "libraries": {
     "ERS/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataAccess/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,17 +1,49 @@
-namespace Services;
-
-public class Tickets
+namespace Services
 {
-    
-    
+
+public class TicketService
+{
+
+    public TicketService()
+    {
+        
+    }
+
+    TicketService example = new TicketService();
 
     // Method to submit a ticket, which returns a unique ID
-    static string SubmitTicket(decimal amount, string description, out int ticketID)
+    public static int SubmitTicket(string amount, string description)
     {
         Random Random = new Random();
-        ticketID = Random.Next(0, int.MaxValue);
+        int ticketID = Random.Next(0, int.MaxValue);
         
         
-
+        return ticketID;
     }
+    // Employee View Submitted Ticket Method
+    public static void viewTicketStatus(int ticketID)
+    {
+        throw new NotImplementedException();
+    }
+    // Manager Processing Ticket Method
+    public static void ProcessTicket()
+    {
+        throw new NotImplementedException();
+    }
+
+
+}
+
+public class Login
+{
+    // throw new NotImplementedException();
+}
+
+public class Register
+{
+    // throw new NotImplementedException();
+}
+
+
+
 }
