@@ -29,38 +29,37 @@
             switch (loginOrRegister)
             {
             case "l":
-            invalidInput = false;
-            Console.WriteLine("Welcome Back! Please enter your username.");
-            string usernameLogin = Console.ReadLine()!.Trim().ToLower();
+                invalidInput = false;
+                Console.WriteLine("Welcome Back! Please enter your username.");
+                string usernameLogin = Console.ReadLine()!.Trim().ToLower();
 
+                Employee x = new Employee();
             
-            Employee x = new Employee();
-            
-            if (usernameLogin.Equals(x))
-            {
+                if (usernameLogin.Equals(x))
+                {
                 Allusernames.Add(usernameLogin);
                 Console.WriteLine("Great! Now enter your password");
                 string passwordLogin = Console.ReadLine()!.Trim().ToLower();
-
-            } else
-            {
+                HashCode.Combine(passwordLogin);
+                Allpasswords.Add(passwordLogin);
+                } 
+                else
+                {
                 System.Console.WriteLine("Not a valid username.");
                 System.Console.WriteLine();
-            }
-
-            
+                }
             break;
 
             case "r":
-            invalidInput = false;
-            Console.WriteLine("Let's create a new account! First, choose your username: (between 1-8 characters)");
-            string usernameRegister = Console.ReadLine()!.Trim().ToLower();
-            if (usernameRegister.Length > 1 && usernameRegister.Length < 8)
-            {
+                invalidInput = false;
+                Console.WriteLine("Let's create a new account! First, choose your username: (between 1-8 characters)");
+                string usernameRegister = Console.ReadLine()!.Trim().ToLower();
+                if (usernameRegister.Length > 1 && usernameRegister.Length < 8)
+                {
                 Allusernames.Add(usernameRegister);
                 Employee y = new Employee();
   
-            }
+                }
             else
             {
                 System.Console.WriteLine("Username must be between 1-8 characters.");
@@ -133,6 +132,7 @@
                         default:
                             invalidInput = true;
                             wrongInputCounter++;
+                            System.Console.WriteLine(wrongInputCounter);
                             System.Console.WriteLine("Not a valid input. Try again!");
                         break;
                     }
