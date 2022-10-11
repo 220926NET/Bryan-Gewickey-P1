@@ -11,6 +11,19 @@
         "runtime": {
           "bin/placeholder/DataAccess.dll": {}
         }
+      },
+      "Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DataAccess": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Models.dll": {}
+        }
       }
     }
   },
@@ -19,11 +32,16 @@
       "type": "project",
       "path": "../DataAccess/DataAccess.csproj",
       "msbuildProject": "../DataAccess/DataAccess.csproj"
+    },
+    "Models/1.0.0": {
+      "type": "project",
+      "path": "../Models/Models.csproj",
+      "msbuildProject": "../Models/Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "DataAccess >= 1.0.0"
+      "Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -51,8 +69,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\bryan\\Documents\\DevProjects\\Revature\\Bryan-Gewickey-P1\\ERS\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\bryan\\Documents\\DevProjects\\Revature\\Bryan-Gewickey-P1\\ERS\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\bryan\\Documents\\DevProjects\\Revature\\Bryan-Gewickey-P1\\ERS\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\bryan\\Documents\\DevProjects\\Revature\\Bryan-Gewickey-P1\\ERS\\Models\\Models.csproj"
             }
           }
         }

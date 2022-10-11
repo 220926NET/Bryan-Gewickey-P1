@@ -57,11 +57,24 @@
           "bin/placeholder/DataAccess.dll": {}
         }
       },
-      "Services/1.0.0": {
+      "Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "DataAccess": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Models.dll": {}
+        }
+      },
+      "Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Models": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Services.dll": {}
@@ -155,6 +168,11 @@
       "path": "../DataAccess/DataAccess.csproj",
       "msbuildProject": "../DataAccess/DataAccess.csproj"
     },
+    "Models/1.0.0": {
+      "type": "project",
+      "path": "../Models/Models.csproj",
+      "msbuildProject": "../Models/Models.csproj"
+    },
     "Services/1.0.0": {
       "type": "project",
       "path": "../Services/Services.csproj",
@@ -163,6 +181,8 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "DataAccess >= 1.0.0",
+      "Models >= 1.0.0",
       "Serilog >= 2.12.0",
       "Serilog.Sinks.Console >= 4.1.0",
       "Serilog.Sinks.File >= 5.0.0",
@@ -194,6 +214,12 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Users\\bryan\\Documents\\DevProjects\\Revature\\Bryan-Gewickey-P1\\ERS\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\bryan\\Documents\\DevProjects\\Revature\\Bryan-Gewickey-P1\\ERS\\DataAccess\\DataAccess.csproj"
+            },
+            "C:\\Users\\bryan\\Documents\\DevProjects\\Revature\\Bryan-Gewickey-P1\\ERS\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\bryan\\Documents\\DevProjects\\Revature\\Bryan-Gewickey-P1\\ERS\\Models\\Models.csproj"
+            },
             "C:\\Users\\bryan\\Documents\\DevProjects\\Revature\\Bryan-Gewickey-P1\\ERS\\Services\\Services.csproj": {
               "projectPath": "C:\\Users\\bryan\\Documents\\DevProjects\\Revature\\Bryan-Gewickey-P1\\ERS\\Services\\Services.csproj"
             }

@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Services/1.0.0": {
         "dependencies": {
-          "DataAccess": "1.0.0"
+          "Models": "1.0.0"
         },
         "runtime": {
           "Services.dll": {}
@@ -17,6 +17,14 @@
       "DataAccess/1.0.0": {
         "runtime": {
           "DataAccess.dll": {}
+        }
+      },
+      "Models/1.0.0": {
+        "dependencies": {
+          "DataAccess": "1.0.0"
+        },
+        "runtime": {
+          "Models.dll": {}
         }
       }
     }
@@ -28,6 +36,11 @@
       "sha512": ""
     },
     "DataAccess/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,17 +1,8 @@
-﻿using DataAccess;
+﻿
 
 
-    // initializing list of tickets
-    // List<Tickets> AllTickets = new List<Tickets>();
-    
-    // initializing dictionary of usernames and passwords
-    Dictionary<Username, Password> AllUsernames = new Dictionary<Username, Password>();
-
-
-
-    // Deserialization
-
-
+    var Allusernames = new HashSet<string>();
+    var Allpasswords = new HashSet<string>();
 
 
 // Start screen
@@ -27,45 +18,128 @@
 
     
 
-    Console.WriteLine("Do you have an account already? Type \"login\" or \"register\" to continue. Type 0 to exit.");
-    string intro = Console.ReadLine()!.Trim().ToLower();
+    Console.WriteLine("Do you have an account already?");
+    System.Console.WriteLine("[L]: Login to your account");
+    System.Console.WriteLine("[R]: Register for a new account");
+    System.Console.WriteLine("[0]: Exit.");
+    string loginOrRegister = Console.ReadLine()!.Trim().ToLower();
+    
+    bool invalidInput;
 
+            switch (loginOrRegister)
+            {
+            case "l":
+            invalidInput = false;
+            Console.WriteLine("Welcome Back! Please enter your username.");
+            string usernameLogin = Console.ReadLine()!.Trim().ToLower();
 
-        if (intro == null)
-        {
-            Console.WriteLine("Oops, you didn't write anything. Please try again: ");
-            string retry = Console.ReadLine()!.Trim().ToLower();
-            if (retry == null)
-            {}
+            
+            Employee x = new Employee();
+            
+            if (usernameLogin.Equals(x))
+            {
+                Allusernames.Add(usernameLogin);
+                Console.WriteLine("Great! Now enter your password");
+                string passwordLogin = Console.ReadLine()!.Trim().ToLower();
 
-        }
-        else if (intro != null)
-        {
-            switch (intro)
-        {
-            case "login":
-        Console.WriteLine("Welcome Back! Please enter your username.");
-        string login = Console.ReadLine()!.Trim().ToLower();
-        // if (login == AllUsernames.username)
-        Console.WriteLine("Great! Now enter your password");
-        string pWord = Console.ReadLine()!.Trim().ToLower();
+            } else
+            {
+                System.Console.WriteLine("Not a valid username.");
+                System.Console.WriteLine();
+            }
+
+            
             break;
 
-            case "register":
+            case "r":
+            invalidInput = false;
+            Console.WriteLine("Let's create a new account! First, choose your username: (between 1-8 characters)");
+            string usernameRegister = Console.ReadLine()!.Trim().ToLower();
+            if (usernameRegister.Length > 1 && usernameRegister.Length < 8)
+            {
+                Allusernames.Add(usernameRegister);
+                Employee y = new Employee();
+  
+            }
+            else
+            {
+                System.Console.WriteLine("Username must be between 1-8 characters.");
+            }
 
-        Console.WriteLine("Let's create a new account! First, choose your username: (must be 1-6 characters)");
-        string value = Console.ReadLine()!.Trim().ToLower();
-        Console.WriteLine("Great! Please enter a new password: (must be 8-12 characters)");
-        string regPassword = Console.ReadLine()!.Trim().ToLower();
-            //if (regPassword == Manager.password)
+            Console.WriteLine("Great! Please enter a new password: (between 6-10 characters)");
+            string passwordRegister = Console.ReadLine()!.Trim().ToLower();
+            if (passwordRegister.Length > 6 || passwordRegister.Length < 10)
+            {
+                HashCode.Combine(passwordRegister);
+                Allpasswords.Add(passwordRegister);
+            }
+            else
+            {
+                System.Console.WriteLine("Invalid password, please enter a pwassword between 6-10 characters.");
+            }
             break;
         
             case "0":
+            invalidInput = false;
             Environment.Exit(0);
             break;
-        }
-        }
 
+            default:
+            invalidInput = true;
+            break;
+            }
+            int wrongInputCounter = 0;
+            while (loginOrRegister == null || invalidInput == true && wrongInputCounter <= 10 )
+            {
+
+                Console.WriteLine("That was confusing. If you have an account already, type [L] to login, type [R] to register, and to exit, type [0]: ");
+                string retry = Console.ReadLine()!.Trim().ToLower();
+                    switch (retry)
+                    {
+                        
+                        case "l":
+                            invalidInput = false;
+                            Console.WriteLine("Welcome Back! Please enter your username.");
+                            string usernameLogin = Console.ReadLine()!.Trim().ToLower();
+                             
+                            Employee x = new Employee();
+            
+                            if (usernameLogin.Equals(x))
+                            {
+                            Allusernames.Add(usernameLogin);
+                            Console.WriteLine("Great! Now enter your password");
+                            string passwordLogin2 = Console.ReadLine()!.Trim().ToLower();
+
+                            } else
+                            {
+                            System.Console.WriteLine("Not a valid username.");
+                            }
+                            break;
+
+                            case "r":
+                            invalidInput = false;
+                            Console.WriteLine("Let's create a new account! First, choose your username: (must be 1-6 characters)");
+                            string usernameRegister = Console.ReadLine()!.Trim().ToLower();
+                            Console.WriteLine("Great! Please enter a new password: (must be 8-12 characters)");
+                            string passwordRegister = Console.ReadLine()!.Trim().ToLower();
+                            //if (regPassword == Manager.password)
+                        break;
+        
+                        case "0":
+                            invalidInput = false;
+                            Environment.Exit(0);
+                        break;
+            
+                        default:
+                            invalidInput = true;
+                            wrongInputCounter++;
+                            System.Console.WriteLine("Not a valid input. Try again!");
+                        break;
+                    }
+            }
+        
+    invalidInput = false;
+       
     // Employee Logged In branch options
     
     Console.WriteLine("What would you like to do?");
@@ -74,9 +148,9 @@
     Console.WriteLine("[account]: To view and update your account info");
     Console.WriteLine("[0]: To exit the application");
 
-    string input2 = Console.ReadLine()!.Trim().ToLower();
+    string employeeOption = Console.ReadLine()!.Trim().ToLower();
 
-    switch (input2)
+    switch (employeeOption)
     {
         case "new":
             System.Console.WriteLine("Enter the amount of the expense: ");
@@ -92,6 +166,10 @@
 
             break;
         case "account":
+            System.Console.WriteLine("Would you like to update your account information? \n [y]: yes [n]: no");
+            var acct = Console.ReadKey();
+            
+
 
             break;
 
@@ -142,3 +220,15 @@
         
 //         return result;
 //     }
+
+
+
+    public class Password
+{
+    Password p = new Password();
+}
+
+public class Username
+{
+    Username n = new Username();
+}
