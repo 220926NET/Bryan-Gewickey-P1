@@ -3,23 +3,24 @@
 namespace TicketServcice
 {
 
-public class Tickets
+public class Ticket
 {
 
     
 
-    public Tickets()
+    public Ticket(string amount, string description, int TicketID)
     {
         
     }
 
-    Tickets example = new Tickets();
+    //Ticket example = new Ticket();
 
     // Method to submit a ticket, which returns a unique ID
     public static int SubmitTicket(string amount, string description)
     {
         Random Random = new Random();
         int ticketID = Random.Next(0, int.MaxValue);
+        
         
         
         return ticketID;
@@ -36,7 +37,7 @@ public class Tickets
     }
 
 
-public class Class1
+public class ManagerTicketPro
 {
     static string ApproveTicket(bool IsManager)
     {

@@ -41,11 +41,9 @@ public class Manager
 
 public class Ticket
 {
-    // Dictionary<TicketID, Username> AllTickets = new Dictionary<TicketID, Username>();
+    int? TicketID;
+    
+
+
 }
-
-
-
-    // User Role Validation
-
 }

@@ -157,7 +157,8 @@
                 string amount = Console.ReadLine()!.Trim().ToLower();
             System.Console.WriteLine("Enter a description of the expense: ");
                 string description = Console.ReadLine()!.Trim().ToLower();
-            //Tickets.SubmitTicket(amount, description);
+
+            //Ticket.SubmitTicket(amount, description);
             break;
         case "status":
             System.Console.WriteLine("Date of Expense__________Ticket Description__________Ticket Amount____________Status_____________Date Submitted");
@@ -232,3 +233,5 @@ public class Username
 {
     Username n = new Username();
 }
+
+ // Dictionary<TicketID, Employee.username> AllTickets = new Dictionary<TicketID, Username>();
