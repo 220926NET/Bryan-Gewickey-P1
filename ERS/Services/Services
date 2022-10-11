@@ -1,14 +1,14 @@
 
 
-namespace TicketServcice
+namespace Servcices
 {
-
+// 
 public class Ticket
 {
 
-    
+    Queue<int> AllTickets = new Queue<int>();
 
-    public Ticket(string amount, string description, int TicketID)
+    public Ticket(string amount, string description)
     {
         
     }
@@ -18,13 +18,15 @@ public class Ticket
     // Method to submit a ticket, which returns a unique ID
     public static int SubmitTicket(string amount, string description)
     {
+        Ticket a = new Ticket(amount, description);
         Random Random = new Random();
         int ticketID = Random.Next(0, int.MaxValue);
-        
-        
+        a.AllTickets.Enqueue(ticketID);
+
         
         return ticketID;
     }
+    
     // Employee View Submitted Ticket Method
     public static void viewTicketStatus(int ticketID)
     {
@@ -39,7 +41,7 @@ public class Ticket
 
 public class ManagerTicketPro
 {
-    static string ApproveTicket(bool IsManager)
+    static string ProcessTicket(bool IsManager)
     {
         string result;
         if (IsManager == true)
@@ -64,9 +66,10 @@ public class AuthService : IUserAuthentification
 
 public class Login
 {
-    public virtual string UserLogin(string usernameLogin)
+    public static string LoginMethod(string usernameLogin)
     {
-        //foreach (string ele in AllUsernames)
+        
+        
         
         throw new NotImplementedException();
     }
@@ -89,7 +92,7 @@ public class ManagerLogin : Login
 {
 
 
- public override string UserLogin(string usernameLogin)
+ public string Literally(string usernameLogin)
  {
     // if (login == Manager.Username.get && pWord == Manager.Password.get)
     throw new NotImplementedException();

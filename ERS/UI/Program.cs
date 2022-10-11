@@ -4,6 +4,9 @@
     var Allusernames = new HashSet<string>();
     var Allpasswords = new HashSet<string>();
 
+    // DB connection
+
+
 
 // Start screen
     
@@ -16,7 +19,7 @@
     Console.WriteLine("                                                     ");
 
 
-    
+    // Login and Register Options
 
     Console.WriteLine("Do you have an account already?");
     System.Console.WriteLine("[L]: Login to your account");
@@ -24,29 +27,59 @@
     System.Console.WriteLine("[0]: Exit.");
     string loginOrRegister = Console.ReadLine()!.Trim().ToLower();
     
+    // Bools to track wrong inputs and manager status
     bool invalidInput;
+    bool IsManager;
 
             switch (loginOrRegister)
             {
+                // Login verification waterfall
             case "l":
                 invalidInput = false;
-                Console.WriteLine("Welcome Back! Please enter your username.");
-                string usernameLogin = Console.ReadLine()!.Trim().ToLower();
 
-                Employee x = new Employee();
+                Console.WriteLine("Welcome Back! Please enter your username: ");
+                string usernameLogin = Console.ReadLine()!.Trim().ToLower();
             
-                if (usernameLogin.Equals(x))
-                {
-                Allusernames.Add(usernameLogin);
-                Console.WriteLine("Great! Now enter your password");
+                Console.WriteLine($"Nice to see you, {usernameLogin}! Now enter your password");
                 string passwordLogin = Console.ReadLine()!.Trim().ToLower();
-                HashCode.Combine(passwordLogin);
-                Allpasswords.Add(passwordLogin);
-                } 
-                else
+
+                foreach (string pwstr in Allpasswords)
                 {
-                System.Console.WriteLine("Not a valid username.");
-                System.Console.WriteLine();
+                    if (!passwordLogin.Equals(Allpasswords))
+                    {
+                        System.Console.WriteLine("Not a valid password.");
+                        System.Console.WriteLine("Please try again: ");
+                        var passVerif = Console.ReadLine()!.Trim().ToLower();
+                    }
+                
+                    else
+                    {
+                    HashCode.Combine(passwordLogin);
+                    Allpasswords.Add(passwordLogin);
+                    }
+                 // Password verification
+                }
+
+
+                foreach (string str in Allusernames)
+                {
+                if (!usernameLogin.Equals(Allusernames))
+                {
+                System.Console.WriteLine("Not a valid username or password.");
+                System.Console.WriteLine("Please try again: ");
+                var loginVerif = Console.ReadLine()!.Trim().ToLower();
+
+                
+                
+                if (loginVerif.Equals(Allusernames))
+                {
+                   System.Console.WriteLine("Great to see you again!");
+                }
+                else 
+                {
+                    Environment.Exit(-1);
+                }
+                }
                 }
             break;
 
@@ -139,6 +172,7 @@
             }
         
     invalidInput = false;
+
        
     // Employee Logged In branch options
     
@@ -162,7 +196,7 @@
             break;
         case "status":
             System.Console.WriteLine("Date of Expense__________Ticket Description__________Ticket Amount____________Status_____________Date Submitted");
-            System.Console.WriteLine("__________________________________________________________");
+            
 
 
             break;
@@ -203,8 +237,6 @@
         break;
 
     }
-
-
 
 // static string ApproveTicket(bool IsManager)
 //     {
