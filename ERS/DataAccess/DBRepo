@@ -1,0 +1,53 @@
+using Microsoft.Data.SqlClient;
+
+namespace DataAccess;
+
+// ADO.NET 
+
+public class DBRepo
+{
+    List<FlashCard> cards = new();
+
+    /*
+    Connecting and interacting with DB
+    1. Connect to the DB
+        - Tell the program where to go to find the DBServer, and the credentials (prov by connectionstrings)
+    2. Assemble the query/SQL statements youre interested in running
+    3. Execute those statements
+    4. Get the results
+    5. Process the result, so the rest of the app can understand/consume it
+    6. Close the connection
+    7. Return the result to the caller
+    */
+
+    SqlConnection connection = new SqlConnection(Server=tcp:bryangp1dbserver.database.windows.net,1433;Initial Catalog=ProjectP1DB;Persist Security Info=False;User ID=bgp1serveradmin;Password=zr8hXzJ5XiPq22n;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;);
+
+    connection.Open();
+
+    SqlCommand command = new SqlCommand("SELECT * from Flashcards;", connection);
+
+    SqlDataReader reader = command.ExecuteReader();
+
+    if (reader.HasRows)
+    {
+        while (reader.Read())
+        {
+            int id = (int) reader["Id"];
+            string q = (string) reader["Question"];
+            string a = (string) reader["Answer"];
+            bool wasCorrect = (bool) reader["wasCorrect"];
+
+            Flashcard card = new Flashcard(
+                ID = id;
+                Question = q;
+                Answer = a;
+                CorrectlyAnswered = wasCorrect;
+            );
+
+            cards.Add(card);
+        }
+    }
+    Connection.Close();
+
+    return cards;
+}

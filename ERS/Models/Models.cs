@@ -9,22 +9,16 @@ public class Employee
     private string? _username;
     private string? _password;
 
-        public Employee()
+        public Employee(string username, string password, bool IsManager)
         {
             
         }
 
         private bool _isManager = false;
 
-        public string Username { get => _username!; set => _username = value; }
+        public string? Username { get => _username; set => _username = value; }
         public string? Password { get => _password; set => _password = value; }
         public bool IsManager { get => _isManager; set => _isManager = value; }
-
-        public override bool Equals(object? obj)
-        {
-            return obj is Employee employee &&
-                   Username == employee.Username;
-        }
 
         public override int GetHashCode()
         {
@@ -32,18 +26,16 @@ public class Employee
         }
     }
 
-public class Manager
+public class Manager : Employee
 {
-    List<Manager> AllManagers = new List<Manager>{};
-
- 
-}
-
-public class Ticket
-{
-    int? TicketID;
-    
-
+    public Manager(string username,
+                   string password,
+                   bool IsManager) : base(username, password, IsManager)
+    {
+        IsManager = true;
+        username = this.Username;
+        password = this.Password;
+    }
 
 }
 }

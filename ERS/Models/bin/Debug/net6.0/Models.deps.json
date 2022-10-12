@@ -7,27 +7,14 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "Models/1.0.0": {
-        "dependencies": {
-          "DataAccess": "1.0.0"
-        },
         "runtime": {
           "Models.dll": {}
-        }
-      },
-      "DataAccess/1.0.0": {
-        "runtime": {
-          "DataAccess.dll": {}
         }
       }
     }
   },
   "libraries": {
     "Models/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "DataAccess/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

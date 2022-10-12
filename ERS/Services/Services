@@ -1,104 +1,138 @@
-
+using DataAccess;
 
 namespace Servcices
 {
+    
 // 
 public class Ticket
 {
 
     Queue<int> AllTickets = new Queue<int>();
 
-    public Ticket(string amount, string description)
+    // Need to overload the constructor to change for process ticket method to have less parameters needed
+    public Ticket(string amount, string description, string submitDate, string expenseDate, int status)
     {
-        
+    
     }
 
     //Ticket example = new Ticket();
 
     // Method to submit a ticket, which returns a unique ID
-    public static int SubmitTicket(string amount, string description)
+    public static int SubmitTicket(string amount, string description, string submitDate, string expenseDate, int status)
     {
-        Ticket a = new Ticket(amount, description);
+        Ticket a = new Ticket(amount, description, submitDate, expenseDate, status = 1);
         Random Random = new Random();
         int ticketID = Random.Next(0, int.MaxValue);
         a.AllTickets.Enqueue(ticketID);
-
         
         return ticketID;
     }
     
     // Employee View Submitted Ticket Method
-    public static void viewTicketStatus(int ticketID)
+    public static void viewTicketStatus(int ticketID, int status)
     {
-        throw new NotImplementedException();
+        switch (status)
+        {
+            case 1:
+                    System.Console.WriteLine("Ticket Status: Pending");
+            break;
+            case 2: 
+                    System.Console.WriteLine("Ticket Status: Approved");
+            break;
+            case 3:
+                    System.Console.WriteLine("Ticket Status: Denied");
+            break;
+                
+        }
+
     }
     // Manager Processing Ticket Method
-    public static void ProcessTicket()
+
+public class ManagerBehaviors
+{
+
+    public bool CheckManager(bool IsManager)
     {
-        throw new NotImplementedException();
+        if (IsManager)
+        {
+            System.Console.WriteLine("");
+        }
     }
 
-
-public class ManagerTicketPro
-{
-    static string ProcessTicket(bool IsManager)
+    static string ProcessTicket(bool IsManager, bool approveDeny)
     {
-        string result;
+
         if (IsManager == true)
         {
+            approveDeny = true;
             Console.WriteLine("Ticket approved!");
-            result = "Approved";
+
         } else 
         {
             Console.WriteLine("Please enter Manager password if you are a manager.");
-            result = "Denied";
+            string mPass = Console.ReadLine()!.Trim().ToLower();
+            for (int i = 0; i < AllManagers)
+            if (mPass == )
+            mPass.ToObject CheckManager(IsManager);
         }
         
-        return result;
     }
+
 }
-public class AuthService : IUserAuthentification
+
+public class LoginRegister
 {
-
-}
-
-}
-
-public class Login
-{
-    public static string LoginMethod(string usernameLogin)
+    HashSet<string> allUsernames = new HashSet<string>();
+    HashSet<string> allPasswords = new HashSet<string>();
+    public string LoginMethod(string usernameLogin, string passwordLogin)
     {
+        bool? invalidInput;
         
-        
-        
-        throw new NotImplementedException();
-    }
-}
 
-public class Register
-{
-    public static void RegisterUser()
+          foreach (string str in allUsernames)
+                {
+                    foreach (string pwstr in allPasswords)
+                    {
+                    
+                        if (!usernameLogin.Equals(str) || !passwordLogin.Equals(pwstr))
+                        {
+                        invalidInput = true;
+                        Console.WriteLine("Not a valid username or password.");
+                        }
+                        else
+                        {
+                            invalidInput = false;
+                        HashCode.Combine(passwordLogin);
+                        allPasswords.Add(passwordLogin);
+                        System.Console.WriteLine("Welcome Back!");
+                        }
+                    }
+                }
+        return "Welcome back!";
+    }
+
+     public static void RegisterUser(string usernameRegister, string passwordRegister)
     {
-        throw new NotImplementedException();
+        HashSet<string> allUsernames = new HashSet<string>();
+        HashSet<string> allPasswords = new HashSet<string>();
+
+         if (usernameRegister.Length > 1 && usernameRegister.Length < 8)
+                {
+                allUsernames.Add(usernameRegister);
+                
+  
+            if (passwordRegister.Length > 6 || passwordRegister.Length < 10)
+            {
+                HashCode.Combine(passwordRegister);
+                allPasswords.Add(passwordRegister);
+            }
+            else
+            {
+                System.Console.WriteLine("Invalid password, please enter a pwassword between 6-10 characters.");
+            }
+            
     }
 }
-
-public interface IUserAuthentification
-{
-
-
 }
-public class ManagerLogin : Login
-{
-
-
- public string Literally(string usernameLogin)
- {
-    // if (login == Manager.Username.get && pWord == Manager.Password.get)
-    throw new NotImplementedException();
- }     
 }
-
-
-
 }
