@@ -1,6 +1,17 @@
-﻿
-// Start screen
-    
+﻿using AuthService;
+using Services;
+using DataAccess;
+using UI;
+using Microsoft.Data.SqlClient;
+
+    //TicketService service = new TicketService(repo);
+
+
+    public void Start()
+{
+    while(true)
+    {
+
     Console.WriteLine("                                                     ");
     Console.WriteLine("/////////////////////////////////////////////////////");
     Console.WriteLine(("                                                  "));
@@ -8,6 +19,12 @@
     Console.WriteLine(("                                                  "));
     Console.WriteLine("/////////////////////////////////////////////////////");
     Console.WriteLine("                                                     ");
+    
+
+    }
+}
+
+// Start screen
 
     // Login and Register Options
 
@@ -22,26 +39,24 @@
             string loginOrRegister = Console.ReadLine()!.Trim().ToLower();
 
 
-
             /// <summary>
             /// 
             /// </summary>
             switch (loginOrRegister)
             {
             case "l":
-
                 Console.WriteLine("Welcome Back! Please enter your username: ");
-                string usernameLogin = Console.ReadLine()!.Trim().ToLower();
+                string uLogin = Console.ReadLine()!.Trim().ToLower();
             
-                Console.WriteLine($"Nice to see you, {usernameLogin}! Now enter your password");
-                string passwordLogin = Console.ReadLine()!.Trim().ToLower();
-                Employee x = new Employee(usernameLogin, passwordLogin, false);
+                Console.WriteLine($"Great! Now enter your password");
+                string pLogin = Console.ReadLine()!.Trim().ToLower();
+
+                LoginMethod(uLogin, pLogin);
 
             break;
     
     
             case "r":
-                
 
                 Console.WriteLine("Let's create a new account! First, choose your username: (between 1-8 characters)");
                 string usernameRegister = Console.ReadLine()!.Trim().ToLower();
@@ -49,23 +64,20 @@
                 Console.WriteLine("Great! Please enter a new password: (between 6-10 characters)");
                 string passwordRegister = Console.ReadLine()!.Trim().ToLower();
                 
-                Employee y = new Employee(usernameRegister, passwordRegister, false);
+
+                RegisterUser(usernameRegister, passwordRegister);
+
             break;
 
             case "0":
-                invalidInput = false;
-                Environment.Exit(0);
+                    Environment.Exit(0);
             break;
 
-                default:
-                            invalidInput = true;
-                            wrongInputCounter++;
-                            System.Console.WriteLine(wrongInputCounter);
-                            System.Console.WriteLine("Not a valid input. Try again!");
-                        break;
+            default:
+                    
+                    System.Console.WriteLine("Not a valid input. Try again!");
+            break;
                     }
-            
-        
        
     // Employee branch options after login
     
@@ -96,7 +108,6 @@
             // System.Console.WriteLine($"Date of Expense: {expenseDate} \n Ticket Description: {description} \n Ticket Amount: {amount}\n Status: {status} \n Date Submitted: {submitDate}");
 
             
-
             break;
 
               case "0":
@@ -105,14 +116,11 @@
     }
 
 
-
     // Manager input options
 
     Console.WriteLine("What would you like to do?");
-    System.Console.WriteLine("[check]: To check if there are new tickets in the queue");
-    System.Console.WriteLine("[process]: To process tickets");
-    System.Console.WriteLine("[new]: To create a new ticket");
-    System.Console.WriteLine("[0]: To exit the application");
+    Console.WriteLine("[process]: To process tickets");
+    Console.WriteLine("[0]: To exit the application");
 
     string managerOption = Console.ReadLine()!.Trim().ToLower();
 
@@ -121,32 +129,13 @@
         case "process":
 
         System.Console.WriteLine("Please enter the ticketID");
-        string? ticketNumInput = Console.ReadLine()!.Trim().ToLower();
-       
+        string? ticketIDInput = Console.ReadLine()!.Trim().ToLower();
+        System.Console.WriteLine("Please enter a number for ");
 
         break;
 
+        case "0":
+        Environment.Exit(0);
+        break;
+
     }
-
-
-
-/*
-Stretch goals:
-
-// Updating Account info
-//
-case "account":
-            System.Console.WriteLine("Would you like to update your account information? \n [y]: yes [n]: no");
-            var acct = Console.ReadKey();
-
-// Hashing Passwords
-//
-public override int GetHashCode()
-        {
-            return HashCode.Combine(Password);
-        }
-HashCode.Combine(passwordRegister);
-
-
-
-*/

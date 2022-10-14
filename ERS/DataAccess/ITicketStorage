@@ -1,0 +1,25 @@
+using Models;
+
+namespace DataAccess;
+
+public interface ITicketStorage
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="IsManager"></param>
+    /// <param name="amount"></param>
+    /// <param name="status"></param>
+     public void ProcessTicket(bool IsManager, string amount, int status);
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="ticketID"></param>
+    /// <param name="status"></param>
+    /// <returns></returns>
+      public string viewTicketStatus(int ticketID, int status);
+
+
+
+}

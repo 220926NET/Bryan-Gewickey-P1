@@ -8,7 +8,6 @@ namespace Models
 /// </summary>
 public class Employee
 {
-
     /// <summary>
     /// 
     /// </summary>
@@ -23,7 +22,9 @@ public class Employee
         /// <param name="IsManager"></param>
         public Employee(string username, string password, bool IsManager = false)
         {
-            
+            _username = username;
+            _password = password;
+            _isManager = IsManager;
         }
         /// <summary>
         /// 
@@ -44,6 +45,7 @@ public class Employee
 /// </summary>
 public class Manager : Employee
 {
+
     /// <summary>
     /// 
     /// </summary>
@@ -60,14 +62,29 @@ public class Manager : Employee
         password = this.Password;
     }
 
+
 }
 /// <summary>
 /// Class for creating Tickets
 /// </summary>
 public class TicketObj
 {
-    // Queue for Submitted Tickets
-    public Queue<int> AllTickets = new Queue<int>();
+
+     private string? amount;
+    private string? description;
+    private string? submitDate;
+    private string? expenseDate;
+    private int? status;
+
+        public int? Status { get => status; set => status = value; }
+        public string? ExpenseDate { get => expenseDate; set => expenseDate = value; }
+        public string? Amount { get => amount; set => amount = value; }
+        }
+        
+            
+
+        // Queue for Submitted Tickets
+        public Queue<int> AllTickets = new Queue<int>();
 
  ///Ticket created from Submit Ticket Method
 

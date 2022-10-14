@@ -1,4 +1,3 @@
-using DataAccess;
 using Models;
 
 namespace Servcices
@@ -10,21 +9,29 @@ namespace Servcices
 public class Ticket
 {
 
-    /// <summary>
-    /// Method to submit a ticket, which returns a unique ID
-    /// </summary>
-    /// <param name="amount"></param>
-    /// <param name="description"></param>
-    /// <param name="submitDate"></param>
-    /// <param name="expenseDate"></param>
-    /// <param name="status"></param>
-    /// <returns></returns>
-    public static void SubmitTicket(string amount, string description, string submitDate, string expenseDate, int status)
+    private string? amount;
+    private string? description;
+    private string? submitDate;
+    private string? expenseDate;
+    private int? status;
+
+        public int? Status { get => status; set => status = value; }
+        public string? ExpenseDate { get => expenseDate; set => expenseDate = value; }
+
+        /// <summary>
+        /// Method to submit a ticket, which returns a unique ID
+        /// </summary>
+        /// <param name="amount"></param>
+        /// <param name="description"></param>
+        /// <param name="submitDate"></param>
+        /// <param name="expenseDate"></param>
+        /// <param name="status"></param>
+        /// <returns></returns>
+        public static void SubmitTicket(string amount, string description, string submitDate, string expenseDate, int status)
     {
         TicketObj a = new TicketObj(amount, description, submitDate, expenseDate, status = 1);
 
     }
-
 
     /// <summary>
     /// Employee View Submitted Ticket Method
@@ -36,16 +43,16 @@ public class Ticket
         
         switch (status)
         {
-            case 1:
-                    return "Ticket Status: Pending";
+
+            case 1: 
+                    return $"Ticket {ticketID} Status: Approved";
             break;
-            case 2: 
-                    return "Ticket Status: Approved";
+            case 2:
+                    return $"Ticket {ticketID} Status: Denied";
             break;
-            case 3:
-                    return "Ticket Status: Denied";
+            default:
+                    return $"Ticket {ticketID} Status: Pending";
             break;
-                
         }
 
     }
@@ -84,41 +91,37 @@ public class Manager
     /// </summary>
     /// <param name="IsManager"></param>
     /// <returns></returns>
-    static void ProcessTicket(bool IsManager)
+    public void ProcessTicket(bool IsManager, string amount, int status)
     {
-        
+        try
+        {
+            int Amount = Int32.Parse(amount);
+            Console.WriteLine(Amount);
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine($"Unable to parse '{amount}'");
+        }
+
+       /*  if (status == 1 && amount < 200 && IsManager)
+        {
+            status = 2;
+            System.Console.WriteLine("Reimbursement Approved!");
+
+        }
+        else if (status == 1 && amount >= 200 && IsManager)
+        {
+            status = 3;
+            System.Console.WriteLine("Reimbursement Denied!");
+        }
+        else 
+        {
+            status = 1;
+            System.Console.WriteLine("Reimbursement pending. Must be approved by a manager.");
+        } */
     }
 
 }
 
-public class LoginRegister
-{
-    List<string> allUsernames = new List<string>();
-    List<string> allPasswords = new List<string>();
-    public string LoginMethod(string usernameLogin, string passwordLogin)
-    {
-        return "Logged In!";
-    }
-
-    /// <summary>
-    /// Creates a new account for a user and validates the username and password length
-    /// </summary>
-    /// <param name="usernameRegister"></param>
-    /// <param name="passwordRegister"></param>
-     public string RegisterUser(string usernameRegister, string passwordRegister)
-    {
-
-         if (usernameRegister.Length >= 1 && usernameRegister.Length <= 10 && passwordRegister.Length >= 5 && passwordRegister.Length <= 10)
-                {
-                    return "Username or password invalid. Username must be 1-10 characters and password must be 5-10 characters.";
-
-                }
-                else
-                {
-                    return  "User Registered!";
-                }
-            
-    }
-}
 }
 }
