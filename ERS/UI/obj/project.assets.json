@@ -828,7 +828,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Microsoft.Data.SqlClient": "5.1.0-preview1.22279.3"
+          "Microsoft.Data.SqlClient": "5.1.0-preview1.22279.3",
+          "Models": "1.0.0"
         },
         "compile": {
           "bin/placeholder/DataAccess.dll": {}

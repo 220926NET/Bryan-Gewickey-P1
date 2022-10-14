@@ -3,29 +3,32 @@
     
     Console.WriteLine("                                                     ");
     Console.WriteLine("/////////////////////////////////////////////////////");
-    System.Console.WriteLine(("                                                  "));
+    Console.WriteLine(("                                                  "));
     Console.WriteLine("Welcome to the Revature Expense Reimbursement System!");
-    System.Console.WriteLine(("                                                  "));
+    Console.WriteLine(("                                                  "));
     Console.WriteLine("/////////////////////////////////////////////////////");
     Console.WriteLine("                                                     ");
 
     // Login and Register Options
-    
+
             Console.WriteLine("What would you like to do?");
             Console.WriteLine("[L]: Login to your account");
             Console.WriteLine("[R]: Register for a new account");
             Console.WriteLine("[0]: To exit the application");
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <returns></returns>
             string loginOrRegister = Console.ReadLine()!.Trim().ToLower();
 
-            bool invalidInput;
 
-            int wrongInputCounter = 0;
-            while (loginOrRegister == null || wrongInputCounter <= 7 )
-            {
+
+            /// <summary>
+            /// 
+            /// </summary>
             switch (loginOrRegister)
             {
             case "l":
-                invalidInput = false;
 
                 Console.WriteLine("Welcome Back! Please enter your username: ");
                 string usernameLogin = Console.ReadLine()!.Trim().ToLower();
@@ -34,19 +37,11 @@
                 string passwordLogin = Console.ReadLine()!.Trim().ToLower();
                 Employee x = new Employee(usernameLogin, passwordLogin, false);
 
-                if (!invalidInput)
-
-                invalidInput = false;
-                            
-
-                //x.Username.set(usernameLogin);
-                //x.LoginMethod(usernameLogin);
-
             break;
     
     
             case "r":
-                invalidInput = false;
+                
 
                 Console.WriteLine("Let's create a new account! First, choose your username: (between 1-8 characters)");
                 string usernameRegister = Console.ReadLine()!.Trim().ToLower();
@@ -69,17 +64,21 @@
                             System.Console.WriteLine("Not a valid input. Try again!");
                         break;
                     }
-            }
+            
         
        
-    // Employee Logged In branch options
+    // Employee branch options after login
     
     Console.WriteLine("What would you like to do?");
     Console.WriteLine("[new]: To create a new ticket");
     Console.WriteLine("[status]: To check the status of a submitted ticket");
-    System.Console.WriteLine("[manager]: To access manager menu");
+    Console.WriteLine("[manager]: To access manager menu");
     Console.WriteLine("[0]: To exit the application");
 
+    /// <summary>
+    /// Takes input from the user
+    /// </summary>
+    /// <returns></returns>
     string employeeOption = Console.ReadLine()!.Trim().ToLower();
 
     switch (employeeOption)
@@ -89,11 +88,12 @@
                 string amount = Console.ReadLine()!.Trim().ToLower();
             System.Console.WriteLine("Enter a description of the expense: ");
                 string description = Console.ReadLine()!.Trim().ToLower();
+            System.Console.WriteLine("Enter the date ");
 
-            //Ticket.SubmitTicket(amount, description);
             break;
         case "status":
-            System.Console.WriteLine($"Date of Expense__________Ticket Description__________Ticket Amount____________Status_____________Date Submitted");
+
+            // System.Console.WriteLine($"Date of Expense: {expenseDate} \n Ticket Description: {description} \n Ticket Amount: {amount}\n Status: {status} \n Date Submitted: {submitDate}");
 
             
 
@@ -114,17 +114,16 @@
     System.Console.WriteLine("[new]: To create a new ticket");
     System.Console.WriteLine("[0]: To exit the application");
 
-    string input3 = Console.ReadLine()!.Trim().ToLower();
+    string managerOption = Console.ReadLine()!.Trim().ToLower();
 
-    switch (input3)
+    switch (managerOption)
     {
         case "process":
-        // Call ticket queue (list)
+
         System.Console.WriteLine("Please enter the ticketID");
         string? ticketNumInput = Console.ReadLine()!.Trim().ToLower();
-        // Ticket z = new Ticket()
-        // Manager.ProcessTicket();
-        // Manager.ApproveTicket(int TicketNum);
+       
+
         break;
 
     }
@@ -134,10 +133,20 @@
 /*
 Stretch goals:
 
-
+// Updating Account info
+//
 case "account":
             System.Console.WriteLine("Would you like to update your account information? \n [y]: yes [n]: no");
             var acct = Console.ReadKey();
+
+// Hashing Passwords
+//
+public override int GetHashCode()
+        {
+            return HashCode.Combine(Password);
+        }
+HashCode.Combine(passwordRegister);
+
 
 
 */

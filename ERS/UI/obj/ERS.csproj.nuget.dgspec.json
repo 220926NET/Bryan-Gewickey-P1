@@ -25,7 +25,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\bryan\\Documents\\DevProjects\\Revature\\Bryan-Gewickey-P1\\ERS\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\bryan\\Documents\\DevProjects\\Revature\\Bryan-Gewickey-P1\\ERS\\Models\\Models.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

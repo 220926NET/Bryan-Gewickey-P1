@@ -1,80 +1,91 @@
 using DataAccess;
+using Models;
 
 namespace Servcices
 {
     
-// 
+/// <summary>
+/// 
+/// </summary>
 public class Ticket
 {
 
-    Queue<int> AllTickets = new Queue<int>();
-
-    // Need to overload the constructor to change for process ticket method to have less parameters needed
-    public Ticket(string amount, string description, string submitDate, string expenseDate, int status)
+    /// <summary>
+    /// Method to submit a ticket, which returns a unique ID
+    /// </summary>
+    /// <param name="amount"></param>
+    /// <param name="description"></param>
+    /// <param name="submitDate"></param>
+    /// <param name="expenseDate"></param>
+    /// <param name="status"></param>
+    /// <returns></returns>
+    public static void SubmitTicket(string amount, string description, string submitDate, string expenseDate, int status)
     {
-    
+        TicketObj a = new TicketObj(amount, description, submitDate, expenseDate, status = 1);
+
     }
 
-    //Ticket example = new Ticket();
 
-    // Method to submit a ticket, which returns a unique ID
-    public static int SubmitTicket(string amount, string description, string submitDate, string expenseDate, int status)
+    /// <summary>
+    /// Employee View Submitted Ticket Method
+    /// </summary>
+    /// <param name="ticketID"></param>
+    /// <param name="status"></param>
+    public string viewTicketStatus(int ticketID, int status)
     {
-        Ticket a = new Ticket(amount, description, submitDate, expenseDate, status = 1);
-        Random Random = new Random();
-        int ticketID = Random.Next(0, int.MaxValue);
-        a.AllTickets.Enqueue(ticketID);
         
-        return ticketID;
-    }
-    
-    // Employee View Submitted Ticket Method
-    public static void viewTicketStatus(int ticketID, int status)
-    {
         switch (status)
         {
             case 1:
-                    System.Console.WriteLine("Ticket Status: Pending");
+                    return "Ticket Status: Pending";
             break;
             case 2: 
-                    System.Console.WriteLine("Ticket Status: Approved");
+                    return "Ticket Status: Approved";
             break;
             case 3:
-                    System.Console.WriteLine("Ticket Status: Denied");
+                    return "Ticket Status: Denied";
             break;
                 
         }
 
     }
-    // Manager Processing Ticket Method
 
-public class ManagerBehaviors
+/// <summary>
+/// 
+/// </summary>
+public class Manager
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="Manager"></typeparam>
+    /// <returns></returns>
+    List<Manager> AllManagers = new List<Manager>();
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="IsManager"></param>
+    /// <returns></returns>
     public bool CheckManager(bool IsManager)
     {
         if (IsManager)
         {
-            System.Console.WriteLine("");
+            return true;
         }
+        else
+        {
+            return false;
+        }
+        
     }
-
-    static string ProcessTicket(bool IsManager, bool approveDeny)
+    /// <summary>
+    /// Manager Processing Ticket Method
+    /// </summary>
+    /// <param name="IsManager"></param>
+    /// <returns></returns>
+    static void ProcessTicket(bool IsManager)
     {
-
-        if (IsManager == true)
-        {
-            approveDeny = true;
-            Console.WriteLine("Ticket approved!");
-
-        } else 
-        {
-            Console.WriteLine("Please enter Manager password if you are a manager.");
-            string mPass = Console.ReadLine()!.Trim().ToLower();
-            for (int i = 0; i < AllManagers)
-            if (mPass == )
-            mPass.ToObject CheckManager(IsManager);
-        }
         
     }
 
@@ -82,57 +93,32 @@ public class ManagerBehaviors
 
 public class LoginRegister
 {
-    HashSet<string> allUsernames = new HashSet<string>();
-    HashSet<string> allPasswords = new HashSet<string>();
+    List<string> allUsernames = new List<string>();
+    List<string> allPasswords = new List<string>();
     public string LoginMethod(string usernameLogin, string passwordLogin)
     {
-        bool? invalidInput;
-        
-
-          foreach (string str in allUsernames)
-                {
-                    foreach (string pwstr in allPasswords)
-                    {
-                    
-                        if (!usernameLogin.Equals(str) || !passwordLogin.Equals(pwstr))
-                        {
-                        invalidInput = true;
-                        Console.WriteLine("Not a valid username or password.");
-                        }
-                        else
-                        {
-                            invalidInput = false;
-                        HashCode.Combine(passwordLogin);
-                        allPasswords.Add(passwordLogin);
-                        System.Console.WriteLine("Welcome Back!");
-                        }
-                    }
-                }
-        return "Welcome back!";
+        return "Logged In!";
     }
 
-     public static void RegisterUser(string usernameRegister, string passwordRegister)
+    /// <summary>
+    /// Creates a new account for a user and validates the username and password length
+    /// </summary>
+    /// <param name="usernameRegister"></param>
+    /// <param name="passwordRegister"></param>
+     public string RegisterUser(string usernameRegister, string passwordRegister)
     {
-        HashSet<string> allUsernames = new HashSet<string>();
-        HashSet<string> allPasswords = new HashSet<string>();
 
-         if (usernameRegister.Length > 1 && usernameRegister.Length < 8)
+         if (usernameRegister.Length >= 1 && usernameRegister.Length <= 10 && passwordRegister.Length >= 5 && passwordRegister.Length <= 10)
                 {
-                allUsernames.Add(usernameRegister);
-                
-  
-            if (passwordRegister.Length > 6 || passwordRegister.Length < 10)
-            {
-                HashCode.Combine(passwordRegister);
-                allPasswords.Add(passwordRegister);
-            }
-            else
-            {
-                System.Console.WriteLine("Invalid password, please enter a pwassword between 6-10 characters.");
-            }
+                    return "Username or password invalid. Username must be 1-10 characters and password must be 5-10 characters.";
+
+                }
+                else
+                {
+                    return  "User Registered!";
+                }
             
     }
-}
 }
 }
 }
